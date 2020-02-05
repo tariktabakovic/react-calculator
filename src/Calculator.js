@@ -24,7 +24,9 @@ class Calculator extends React.Component {
                 <input 
                     type='number' 
                     value={this.state.num2}
-                    >
+                    onChange={(event)=>{
+                        this._updateNumber('num2',event.target.value);
+                    }}>
                 </input>
             <br></br>
             <button>+</button>
@@ -39,7 +41,7 @@ class Calculator extends React.Component {
 
     _updateNumber= (key, newNumber) => { 
         this.setState({
-            key: newNumber
+            [key]: newNumber
         });
     }
 }
