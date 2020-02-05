@@ -29,10 +29,11 @@ class Calculator extends React.Component {
                     }}>
                 </input>
             <br></br>
-            <button>+</button>
+            <button onClick= {this._add}>+</button>
             <button>-</button>
             <button>/</button>
             <button>*</button>
+            <div>{this.state.result}</div>
         </div>
 
 
@@ -41,8 +42,32 @@ class Calculator extends React.Component {
 
     _updateNumber= (key, newNumber) => { 
         this.setState({
-            [key]: newNumber
+            [key]: parseInt(newNumber, 10)
         });
+    }
+
+    _add = () => {
+        this.setState({
+            result: this.state.num1 + this.state.num2
+        });
+    }
+
+    _subtract = () => {
+        this.setState({
+            result: this.state.num1 - this.state.num2
+        })
+    }
+
+    _divide = () => {
+        this.setState({
+            result: this.state.num1 / this.state.num2
+        })
+    }
+
+    _multiply = () => {
+        this.setState({
+            result: this.state.num1 * this.state.num2
+        }) 
     }
 }
 
